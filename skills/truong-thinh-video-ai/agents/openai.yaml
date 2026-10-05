@@ -1,0 +1,15 @@
+interface:
+  display_name: Video thi công & marketing Trường Thịnh
+  short_description: Ảnh trung gian, prompt Flow và dựng video marketing
+  icon_small: assets/icon.svg
+  icon_large: assets/icon.svg
+  default_prompt: Dùng $truong-thinh-video-ai chuyển ảnh hoàn thiện thành ảnh trung
+    gian không người, viết prompt Flow 8/10 giây với thợ nhất quán và intro @me, rồi
+    ghép clip với outro thành video marketing.
+policy:
+  allow_implicit_invocation: true
+  products:
+  - chatgpt
+  - codex
+  - api
+  - atlas

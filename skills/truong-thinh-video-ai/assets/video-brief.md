@@ -1,0 +1,22 @@
+# Brief / checkpoint video
+
+- Mục tiêu, chủ đề, thương hiệu, Project:
+- Ảnh hoàn thiện / phiên bản nguồn:
+- Logo gốc / vị trí / logo trong cảnh hay overlay:
+- Ảnh @me / khóa diện mạo, trang phục:
+- Tỷ lệ đã chốt / khung xuất:
+- Kiến trúc, góc máy, vật liệu và chi tiết phải giữ:
+- Ảnh mốc: S0 → S1 → … → Sn; tất cả không người; ảnh nào đã kiểm tra:
+- Hồ sơ thợ A/B đã khóa nguyên văn / ảnh thợ riêng / vai trò / hướng vào-ra:
+- Đồng phục toàn chuỗi: polo navy trơn / quần công tác charcoal tối / giày bảo hộ đen; ngoại lệ được người dùng yêu cầu:
+- Bảng cảnh: mã / ảnh đầu-cuối / động tác / 8 hoặc 10 giây và lý do:
+- Model, khả năng tham chiếu, audio, thời lượng và credit thực tế trong Flow:
+- Prompt cuối độc lập từng cảnh:
+- Intro: hook tiếng Việt / @me / voice / thời lượng:
+- Outro đã chọn hoặc prompt mới:
+- Nhạc: nguồn / mood-nhịp / trộn trong Flow hay dựng / hạ dưới voice:
+- CTA đã xác nhận; mặc định Trường Thịnh: 0913 131 050:
+- Clip nguồn / trim / cảnh đạt, cảnh lỗi / SRT timestamps thực tế:
+- Đã kiểm tra: thợ / kiến trúc / logo / voice / nhạc / phụ đề / CTA / metadata:
+- Trạng thái: ảnh / prompt / chờ clip / bản dựng / đã kiểm tra:
+- File kết quả / giới hạn kiểm tra:
