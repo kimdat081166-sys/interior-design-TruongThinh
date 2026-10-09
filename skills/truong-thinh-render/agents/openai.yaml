@@ -1,0 +1,14 @@
+interface:
+  display_name: Render đồng bộ Trường Thịnh
+  short_description: Render bản vẽ thô, đồng bộ vật liệu qua nhiều góc
+  default_prompt: Dùng $truong-thinh-render để render các góc bản vẽ thô, giữ thiết
+    kế và đồng bộ vật liệu, ánh sáng.
+  icon_small: assets/icon.svg
+  icon_large: assets/icon.svg
+policy:
+  products:
+  - chatgpt
+  - codex
+  - api
+  - atlas
+  allow_implicit_invocation: true
