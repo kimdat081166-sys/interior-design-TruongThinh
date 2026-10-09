@@ -16,6 +16,27 @@ Thực hiện trực tiếp trong ChatGPT bằng công cụ tạo/chỉnh ảnh 
 - Nếu thiếu vật liệu của bộ phận quan trọng, hỏi gọn trước khi tạo. Với màu chưa chốt, đề xuất giả định ghi rõ và chỉ áp dụng khi đã được người dùng chấp thuận. Không tự chọn vật liệu sang trọng.
 - Nếu là bản vẽ 2D, giải thích phạm vi và yêu cầu phối cảnh xuất từ mô hình hoặc chuyển sang quy trình khác; không dựng 3D tùy tiện.
 
+## Chọn ánh sáng trước khi render
+
+Khi bắt đầu dự án hoặc khi người dùng yêu cầu đổi ánh sáng, đưa danh sách đánh số sau để người dùng chọn; không tự tạo ảnh trước khi có lựa chọn hoặc chỉ định đủ rõ. Cho trả lời bằng số hoặc mô tả riêng:
+
+1. **Ban ngày dịu** — ánh sáng tự nhiên khuếch tán, đều, bóng mềm; dễ đối chiếu vật liệu.
+2. **Ban ngày sáng trong, nắng nhẹ** — trong trẻo, một ít hoa nắng; tránh bóng gắt và cháy sáng.
+3. **Chiều ấm / hoàng hôn** — ánh sáng vàng dịu, cảm giác ấm; giữ màu vật liệu có thể nhận biết.
+4. **Nội thất trung tính** — dùng hệ đèn hiện hữu, sắc sáng trung tính khoảng 4000K; không thêm thiết bị.
+5. **Nội thất ấm** — dùng hệ đèn hiện hữu, sắc sáng ấm khoảng 3000K; không thêm thiết bị.
+6. **Ban đêm** — bối cảnh tối, dùng đèn hiện hữu và ánh sáng môi trường hợp lý; không tự chế đèn.
+7. **Theo ảnh tham khảo** — yêu cầu ảnh tham khảo thực tế rồi phân tích thời điểm, độ mềm, màu và hướng nguồn sáng.
+8. **Tùy chỉnh** — nhận mô tả riêng của người dùng.
+
+Các nhiệt độ màu là định hướng mô phỏng, không phải số đo hay cam kết vật lý. Nếu người dùng đã chỉ định/duyệt ánh sáng đủ rõ trong phiên đang làm, giữ lựa chọn và không hỏi lại chỉ vì gọi skill. Không áp ánh sáng của dự án cũ cho dự án mới. Nếu yêu cầu "cho list tôi chọn", luôn hiển thị danh sách và chờ chọn, chưa render.
+
+Nếu chọn chế độ đèn nhưng ảnh nguồn không cho thấy hệ đèn hoặc người dùng muốn thêm đèn, hỏi một câu gọn về vị trí/loại đèn trước khi tạo; không phát sinh đèn mới chỉ vì chọn preset. Với nắng nhẹ/hoàng hôn, không thêm cửa hay ô mở để có nắng. Nếu không đủ cơ sở xác định hướng sáng, hỏi hoặc dùng ánh sáng môi trường mềm, ghi rõ giả định.
+
+Ghi lựa chọn thành một cấu hình chung: mã/tên kịch bản, thời điểm, độ mềm, sắc sáng, hướng sáng theo không gian nếu xác định được, thiết bị hiện hữu và điều cấm. Dùng cùng cấu hình cho mọi góc; trái/phải trên ảnh có thể đổi theo camera, không ép hướng sáng màn hình giống nhau. Kiểm tra không cháy sáng, không ám màu quá mức, không mất chi tiết kính/kim loại và không đổi màu vật liệu ngoài tác động ánh sáng.
+
+Đổi lựa chọn thì giữ ảnh đã duyệt thành phiên bản trước, cập nhật brief và kiểm tra lại các góc; không ghi đè bộ ảnh cũ. Chỉ cập nhật skill không phải yêu cầu đổi ánh sáng của bộ ảnh đã duyệt.
+
 ## 2. Khóa brief dùng chung
 
 Ghi một phiên bản brief với bảng vật liệu và ánh sáng. Tách vật liệu người dùng chỉ định khỏi màu placeholder trong SketchUp. Ưu tiên:
