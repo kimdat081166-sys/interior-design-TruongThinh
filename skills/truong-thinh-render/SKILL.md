@@ -1,6 +1,6 @@
 ---
 name: truong-thinh-render
-description: Render ảnh phối cảnh 3D thô từ SketchUp hoặc phần mềm tương tự thành ảnh chân thật cho Trường Thịnh; giữ thiết kế, đồng bộ vật liệu và ánh sáng giữa nhiều góc của một dự án, kiểm định nghiêm và sửa lỗi có giới hạn. Dùng khi người dùng gọi Render đồng bộ Trường Thịnh, yêu cầu render nhiều góc thống nhất hoặc chuyển bản vẽ thô thành ảnh thực tế. Không dùng cho video, tái dựng mặt bằng 2D hay thiết kế lại.
+description: Render ảnh phối cảnh 3D thô từ SketchUp hoặc phần mềm tương tự thành ảnh chân thật cho Trường Thịnh; giữ thiết kế, đồng bộ vật liệu, ánh sáng và đồ vật thêm vào giữa nhiều góc của một dự án, kiểm định nghiêm và sửa lỗi có giới hạn. Dùng khi người dùng gọi Render đồng bộ Trường Thịnh, yêu cầu render nhiều góc thống nhất hoặc chuyển bản vẽ thô thành ảnh thực tế. Không dùng cho video, tái dựng mặt bằng 2D hay thiết kế lại.
 ---
 
 # Render đồng bộ Trường Thịnh
@@ -49,6 +49,37 @@ Khi các nguồn xung đột, tuân theo đúng vai trò. Ví dụ: nan trắng 
 
 Đọc [references/render-contract.md](references/render-contract.md) để soạn prompt và kiểm định. Không áp vật liệu Dừa Cửu Long vào công trình khác; đó chỉ là ví dụ lỗi đã gặp.
 
+## Tăng độ chân thật và chiều sâu
+
+- Soạn mô tả vật liệu theo từng bộ phận: hướng/tỷ lệ vân gỗ, độ nhám và độ bóng hợp lý, cạnh và chiều dày theo nguồn. Thể hiện MDF phủ vân gỗ như tấm gia công, không biến thành gỗ nguyên khối hoặc đổi cấu trúc.
+- Dùng phản xạ phù hợp từng chất liệu: kính trong có cạnh/phản xạ nhẹ, vẫn nhìn xuyên; nhôm có ánh kim vừa phải; sắt sơn mờ không bóng như chrome. Không phủ cùng một độ bóng lên cả ảnh.
+- Tạo chiều sâu bằng ánh sáng phản xạ mềm, bóng tiếp xúc tại chân/vật đặt trên kệ và chênh sáng vừa phải giữa tiền cảnh/trung cảnh/hậu cảnh. Tránh viền đen ambient occlusion quá đậm, vật thể lơ lửng và bóng sai hướng.
+- Giữ màu vật liệu đã duyệt khi đổi ánh sáng. Tránh HDR quá mức, màu quá rực, sắc nét giả, bề mặt nhựa, ánh sáng phẳng hoàn toàn hoặc ảnh tối khiến mất chi tiết.
+- Mô phỏng ảnh kiến trúc chuyên nghiệp với độ nét đủ sâu để đọc toàn bộ thiết kế; không dùng xóa phông mạnh, méo góc rộng hoặc hiệu ứng điện ảnh để che lỗi. Không thêm vết bẩn, hư hỏng hay hao mòn nếu chưa yêu cầu.
+- Đây là mục tiêu kiểm định trực quan, không tuyên bố mô phỏng vật lý chính xác hay cam kết không sai lệch.
+
+## Thêm đồ vật nhất quán giữa các góc
+
+Khi bắt đầu dự án, nếu chưa có chỉ định, cho chọn ngắn:
+1. Giữ nguyên, không thêm đồ.
+2. Thêm ít đồ phù hợp công năng.
+3. Bày hàng/đồ vật đầy đủ theo danh mục.
+4. Theo ảnh hoặc danh sách người dùng cung cấp.
+
+Chỉ thêm đồ khi người dùng chọn/ủy quyền. Nếu đã yêu cầu thêm đồ và cho tự đề xuất, lập một phương án gọn để duyệt; không hỏi lại quyền đề xuất. Cập nhật skill đơn thuần không cho phép sửa bộ ảnh cũ. Không tự thêm người, logo, nhãn thương hiệu hay thiết bị cố định.
+
+Trước khi tạo, lập DANH MỤC ĐỒ VẬT DÙNG CHUNG trong brief:
+- Mã O01…; tên/chủng loại; số lượng; hình dáng/tỷ lệ; vật liệu/màu; ảnh tham chiếu nếu có.
+- Vị trí cố định theo công trình: mã xuồng/tủ/kệ, tầng kệ đếm từ dưới lên, vùng gần cầu thang/tường/bảng hiệu. Không dùng trái/phải trên màn hình làm vị trí duy nhất.
+- Ghi nhóm/số lượng hàng khi bày nhiều sản phẩm; chọn bố cục vừa đủ, chừa lối đi, không che bảng hiệu hoặc cấu trúc quan trọng. Không đưa kích thước thực không có căn cứ; tỷ lệ tạm phải ghi rõ.
+- Với đồ ở vùng chưa thấy rõ trong nguồn, hỏi hoặc đề xuất vị trí có cơ sở để duyệt; không đoán tọa độ 3D từ một ảnh.
+
+Tạo và duyệt góc chuẩn có đồ trước, dùng ảnh đó làm tham chiếu nhận dạng đồ cho góc tiếp theo. Trong prompt từng góc, đưa lại danh mục chung và bảng hiển thị O01…: thấy đủ / thấy một phần / bị khuất / ngoài khung. Giữ cùng mẫu, số lượng tổng, màu và vị trí trong không gian; cho phép hình chiếu/kích thước biểu kiến đổi theo camera. Không ép đồ bị khuất xuất hiện, không nhân đôi hoặc chuyển đồ sang kệ khác để lấp khoảng trống.
+
+Thêm đồ trên bề mặt bằng chỉnh ảnh có mục tiêu; giữ nguyên kiến trúc, vật liệu và ánh sáng đã duyệt. Kiểm tra bóng tiếp xúc, tỷ lệ, điểm tựa và che khuất. Nếu sửa ảnh có đồ, nhắc lại danh mục và vị trí để không làm mất/thay mẫu. Không cam kết giữ chính xác nhãn sản phẩm nếu công cụ không làm được; báo lỗi nhãn và xin ảnh sản phẩm rõ hơn khi cần.
+
+Kiểm định chéo tất cả góc: mẫu/nhận dạng, số lượng nhìn thấy phù hợp che khuất, vị trí theo vật chủ, màu, tỷ lệ và bóng. Lỗi đồ biến mất khi đáng ra phải thấy, đổi mẫu, nhân đôi hoặc đổi tầng kệ chặn nghiệm thu. Đồ bị khuất ghi KHÔNG ĐỦ CƠ SỞ, không tự đánh ĐẠT. Tối đa hai lượt tự sửa mỗi góc kể cả sửa đồ; vẫn lệch thì báo và đề nghị mô hình 3D/ảnh tham chiếu tốt hơn.
+
 ## 3. Render và duyệt góc chuẩn
 
 - Tạo một ứng viên chuẩn từ ảnh nguồn, bảng vật liệu và ánh sáng chung. Nêu vai trò từng ảnh theo đúng thứ tự truyền vào công cụ. Dùng đường dẫn tham chiếu đã xem hoặc số ảnh hội thoại nhỏ nhất bao gồm đủ nguồn; không khai báo ảnh chưa được đưa vào công cụ.
@@ -68,7 +99,7 @@ Khi các nguồn xung đột, tuân theo đúng vai trò. Ví dụ: nan trắng 
 
 ## 5. Sếp khó tính kiểm định và giao ảnh
 
-Chấm riêng từng góc: camera/bố cục; hình khối/số lượng; từng vật liệu; ánh sáng; chữ/logo. Dùng trạng thái ĐẠT / CHƯA ĐẠT / KHÔNG ĐỦ CƠ SỞ. Không đánh dấu ĐẠT cho phần khuất hoặc chưa nhìn rõ.
+Chấm riêng từng góc: camera/bố cục; hình khối/số lượng; từng vật liệu; ánh sáng/độ chân thật; đồ vật theo danh mục chung; chữ/logo. Dùng trạng thái ĐẠT / CHƯA ĐẠT / KHÔNG ĐỦ CƠ SỞ. Không đánh dấu ĐẠT cho phần khuất hoặc chưa nhìn rõ.
 
 Lỗi chặn nghiệm thu: sai bộ phận/vật liệu/màu, đổi góc nhìn, thêm/bớt vật thể, đổi kết cấu hoặc sai chữ quan trọng. Sai ánh sáng rõ giữa các góc cũng chặn nghiệm thu đồng nhất. Nêu sai lệch còn lại kể cả ảnh nhìn đẹp.
 
