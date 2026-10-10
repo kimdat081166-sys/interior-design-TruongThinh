@@ -8,9 +8,11 @@ TASK: Photorealistic architectural render of THIS raw 3D perspective, preserving
 INPUT ROLES: Image 1 = current raw source, sole authority for camera, geometry, layout, quantity and proportions. Image 2, if supplied = approved render, appearance/material/lighting reference only. Other supplied images = explicitly named material references only. Never transfer camera/layout from appearance references.
 CURRENT CAMERA: [describe observed near/far objects, left/right placement and crop].
 AUTHORITATIVE MATERIAL TABLE: [each object -> material -> color/finish -> preservation constraints]. This table overrides placeholder colors in the raw sketch and conflicting appearance references. Apply each material only to its named component, across every visible instance.
+APPROVED ADDED OBJECTS: [shared inventory IDs, appearance, count and world-relative positions; per-view visibility/occlusion]. Add ONLY approved inventory; keep object identity and placement across views. Never force hidden objects into view.
+REALISM: physically plausible material-specific roughness/reflections, correct texture scale, soft contact shadows, balanced foreground/midground/background depth, restrained architectural-photo exposure. No plastic look, excessive HDR, dark outlines or geometry changes.
 PRESERVE: [observed fixed features, shelf tiers, slat spacing/section/count, cabinets, signage]. Do not redesign, round off or rebuild objects. Keep existing text and logo shapes; no new content.
 LIGHTING: [shared time, light softness, color tone]; plausible viewpoint-dependent reflections/shadows. Keep existing fixtures only.
-PROHIBITIONS: Do not substitute materials, transfer camera, add/remove furnishings, people, merchandise, plants, vehicles or fixtures. [derive specific prohibitions from this project's table].
+PROHIBITIONS: Do not substitute materials, transfer camera, add/remove furnishings, people, merchandise, plants, vehicles or fixtures except explicitly approved added-object inventory. [derive specific prohibitions from this project's table].
 
 For a correction, explicitly label the current result and raw source according to the actual input order. State a narrow change, preserve all unrequested features and repeat the material table. Include the approved appearance reference only when actually supplied and useful.
 
@@ -28,7 +30,7 @@ For a correction, explicitly label the current result and raw source according t
 ## Case Dừa Cửu Long: chỉ đọc làm ví dụ
 
 - Thân xuồng: MDF vân gỗ; nâu tự nhiên là màu tạm đã duyệt riêng case này.
-- Cánh buồm/tầng kệ: kính trong. Không lan vân gỗ từ thân lên buồm.
+- Chỉ định mới nhất đã duyệt: cánh buồm MDF vân gỗ cùng thân; CHỈ tầng kệ là kính trong. Yêu cầu cũ buồm kính đã bị thay thế, không áp lại.
 - Vách lam: sắt sơn đen mờ, giữ hình học của nguồn dù placeholder màu trắng.
 - Tủ kính: khung nhôm, kính trong; bạc là màu tạm duyệt riêng case này; giữ chân/bệ.
 - Ánh sáng ban ngày. Bảng hiệu nền vàng chữ xanh; giữ sàn/tường/trần theo nguồn.
